@@ -17,6 +17,8 @@ class Machine
         @rotors.push part
 
   map: (letter) ->
+    ++@iteration
+
     letter = this.plugboard.map letter
     letter = this.rotors[0].map letter
     letter = this.rotors[1].map letter
@@ -28,6 +30,8 @@ class Machine
     letter = this.plugboard.map letter
 
     @rotors[0].revolution()
+    if @iteration % 26 == 0 then @rotors[1].revolution()
+    if @iteration % 676 == 0 then @rotors[2].revolution()
 
     letter
 
