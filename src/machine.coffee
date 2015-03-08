@@ -20,18 +20,16 @@ class Machine
     ++@iteration
 
     letter = @plugboard.map letter
-    letter = @rotors[0].map letter
-    letter = @rotors[1].map letter
-    letter = @rotors[2].map letter
+    for rotor, i in @rotors
+      letter = @rotors[i].map letter
     letter = @reflector.map letter
-    letter = @rotors[2].unmap letter
-    letter = @rotors[1].unmap letter
-    letter = @rotors[0].unmap letter
+    for rotor, i in @rotors by -1
+      letter = @rotors[i].unmap letter
     letter = @plugboard.map letter
 
     @rotors[0].revolution()
-    if @iteration % 26 == 0 then @rotors[1].revolution()
-    if @iteration % 676 == 0 then @rotors[2].revolution()
+    for rotor, i in @rotors[1..]
+      if @iteration % (Math.pow 26, i+1) == 0 then @rotors[i+1].revolution()
 
     letter
 

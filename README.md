@@ -60,9 +60,26 @@ different positions
 machine = new Machine
 machine.compose [
   new Plugboard,
-  new Reflector("fake"),
+  new Reflector("b"),
   new Rotor("III", 10)
   new Rotor("I", 19),
+  new Rotor("II", 7),
+]
+```
+
+## Supports multiple rotors
+
+You can mount different rotors (more than three).
+
+```coffee
+
+machine = new Machine
+machine.compose [
+  new Plugboard,
+  new Reflector("b"),
+  new Rotor("III", 10)
+  new Rotor("I", 19),
+  new Rotor("IV", 17)
   new Rotor("II", 7),
 ]
 ```

@@ -169,3 +169,34 @@ describe "the whole enigma machine", ->
     it "should scramble back a long sentence", ->
       expect(@machine.scramble "xhckeehbxftmfpxusdryvgzszjvovu").toBe "helloworldhelloworldhelloworld"
 
+  describe "Scramble with more than three rotors", ->
+    beforeEach ->
+      machine = new Machine
+      machine.compose [
+        new Plugboard([
+          {'a': 'd'},
+          {'b': 'e'},
+          {'h': 'k'},
+        ]),
+        new Reflector("b"),
+        new Rotor("IV", 11),
+        new Rotor("III", 23),
+        new Rotor("II", 12),
+        new Rotor("I", 11),
+      ]
+
+      @machine = machine
+
+    it "should scramble hello world", ->
+      expect(@machine.scramble "helloworld").toBe "ufzbyxkeye"
+
+    it "should scramble back 'helloworld'", ->
+      expect(@machine.scramble "ufzbyxkeye").toBe "helloworld"
+
+    it "should scramble a long sentence", ->
+      expect(@machine.scramble "helloworldhelloworldhelloworld").toBe "ufzbyxkeyeoorpsisvzmxhcheiakrh"
+
+    it "should scramble back a long sentence", ->
+      expect(@machine.scramble "ufzbyxkeyeoorpsisvzmxhcheiakrh").toBe "helloworldhelloworldhelloworld"
+
+

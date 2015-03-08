@@ -1,8 +1,13 @@
 class Rotor
   availableRotors: {
-    "I":   "ekmflgdqvzntowyhxuspaibrcj",
-    "II":  "ajdksiruxblhwtmcqgznpyfvoe",
-    "III": "bdfhjlcprtxvznyeiwgakmusqo",
+    "I":    "ekmflgdqvzntowyhxuspaibrcj",
+    "II":   "ajdksiruxblhwtmcqgznpyfvoe",
+    "III":  "bdfhjlcprtxvznyeiwgakmusqo",
+    "IV":   "esovpzjayquirhxlnftgkdcmwb",
+    "V":    "vzbrgityupsdnhlxawmjqofeck",
+    "VI":   "jpgvoumfyqbenhzrdkasxlictw",
+    "VII":  "nzjhgrcxmyswboufaivlpekqdt",
+    "VIII": "fkqhtlxocbjspdzramewniuygv",
   }
   letters: false
 
