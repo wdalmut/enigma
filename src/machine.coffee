@@ -2,9 +2,12 @@ class Machine
   plugboard: false
   reflector: false
   rotors: []
+  iteration: 0
 
   compose: (parts) ->
     @rotors = []
+    iteration = 0
+
     for part in parts
       if part instanceof Reflector
         @reflector = part
@@ -27,5 +30,12 @@ class Machine
     @rotors[0].revolution()
 
     letter
+
+  scramble: (sentence) ->
+    scrambled = ""
+    for letter in sentence
+      scrambled += this.map letter
+
+    scrambled
 
 window.Machine=Machine

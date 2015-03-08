@@ -25,8 +25,8 @@ describe "the whole enigma machine", ->
     beforeEach ->
       machine = new Machine
       machine.compose [
-        new Reflector("b"),
         new Plugboard,
+        new Reflector("b"),
         new Rotor("III")
         new Rotor("II"),
         new Rotor("I"),
@@ -47,5 +47,24 @@ describe "the whole enigma machine", ->
     it "should map multiple characters back to original", ->
       expect(@machine.map "b").toBe "e"
       expect(@machine.map "p").toBe "e"
+
+  describe "Try cipher different sentences", ->
+    beforeEach ->
+      machine = new Machine
+      machine.compose [
+        new Plugboard,
+        new Reflector("b"),
+        new Rotor("III")
+        new Rotor("II"),
+        new Rotor("I"),
+      ]
+
+      @machine = machine
+
+    it "should cipher hello world", ->
+      expect(@machine.scramble "helloworld").toBe "zpezrrcuwj"
+
+    it "should uncipher 'zpezrrcuwj'", ->
+      expect(@machine.scramble "zpezrrcuwj").toBe "helloworld"
 
 
