@@ -8,13 +8,16 @@ class Rotor
 
   constructor: (type, position) ->
     @letters = @rotors[type]
-    @iteration = position
+
+    i=0
+    while i < position
+      this.revolution()
+      i++
 
   map: (letter) ->
-    letters = this.moveLettersTo()
-    letters[(letter.charCodeAt 0) - 97]
+    @letters[(letter.charCodeAt 0) - 97]
 
-  moveLettersTo: ->
+  revolution: () ->
     @letters = (@letters[25..] + @letters)[0..25]
 
 
