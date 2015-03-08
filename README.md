@@ -1,4 +1,4 @@
-# Enigma Machine
+# Enigma Machine [![Build Status](https://travis-ci.org/wdalmut/enigma.svg?branch=master)](https://travis-ci.org/wdalmut/enigma)
 
 Just an Enigma machine in coffeescript (a kata)
 
