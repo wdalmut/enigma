@@ -19,15 +19,15 @@ class Machine
   map: (letter) ->
     ++@iteration
 
-    letter = this.plugboard.map letter
-    letter = this.rotors[0].map letter
-    letter = this.rotors[1].map letter
-    letter = this.rotors[2].map letter
-    letter = this.reflector.map letter
-    letter = this.rotors[2].unmap letter
-    letter = this.rotors[1].unmap letter
-    letter = this.rotors[0].unmap letter
-    letter = this.plugboard.map letter
+    letter = @plugboard.map letter
+    letter = @rotors[0].map letter
+    letter = @rotors[1].map letter
+    letter = @rotors[2].map letter
+    letter = @reflector.map letter
+    letter = @rotors[2].unmap letter
+    letter = @rotors[1].unmap letter
+    letter = @rotors[0].unmap letter
+    letter = @plugboard.map letter
 
     @rotors[0].revolution()
     if @iteration % 26 == 0 then @rotors[1].revolution()
@@ -38,7 +38,7 @@ class Machine
   scramble: (sentence) ->
     scrambled = ""
     for letter in sentence
-      scrambled += this.map letter
+      scrambled += @map letter
 
     scrambled
 

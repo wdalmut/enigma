@@ -11,7 +11,7 @@ class Reflector
 
   map: (letter) ->
     pos = letter.charCodeAt 0
-    this.type[this.model][pos % 97]
+    @type[@model][pos % 97]
 
 window.Reflector = Reflector
 

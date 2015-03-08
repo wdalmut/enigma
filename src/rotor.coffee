@@ -11,7 +11,7 @@ class Rotor
 
     i=0
     while i < position
-      this.revolution()
+      @revolution()
       i++
 
   map: (letter) ->

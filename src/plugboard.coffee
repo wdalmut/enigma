@@ -31,13 +31,13 @@ class Plugboard
   constructor: (maps = []) ->
     for map in maps
       for key, value of map
-        this.wire key, value
+        @wire key, value
 
   wire: (letter, to) ->
-    this.wirings[letter] = to
-    this.wirings[to] = letter
+    @wirings[letter] = to
+    @wirings[to] = letter
 
   map: (letter) ->
-    this.wirings[letter]
+    @wirings[letter]
 
 window.Plugboard = Plugboard
