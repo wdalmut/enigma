@@ -140,3 +140,32 @@ describe "the whole enigma machine", ->
     it "should scramble back a long sentence", ->
       expect(@machine.scramble "zpezrrcuwjiqtkionlxgexcatxznky").toBe "helloworldhelloworldhelloworld"
 
+  describe "Scramble with a different default configurations", ->
+    beforeEach ->
+      machine = new Machine
+      machine.compose [
+        new Plugboard([
+          {'a': 'd'},
+          {'b': 'e'},
+          {'h': 'k'},
+        ]),
+        new Reflector("b"),
+        new Rotor("III", 23),
+        new Rotor("II", 12),
+        new Rotor("I", 11),
+      ]
+
+      @machine = machine
+
+    it "should scramble hello world", ->
+      expect(@machine.scramble "helloworld").toBe "xhckeehbxf"
+
+    it "should scramble 'xhckeehbxf' back to 'helloworld'", ->
+      expect(@machine.scramble "xhckeehbxf").toBe "helloworld"
+
+    it "should scramble a long sentence", ->
+      expect(@machine.scramble "helloworldhelloworldhelloworld").toBe "xhckeehbxftmfpxusdryvgzszjvovu"
+
+    it "should scramble back a long sentence", ->
+      expect(@machine.scramble "xhckeehbxftmfpxusdryvgzszjvovu").toBe "helloworldhelloworldhelloworld"
+
