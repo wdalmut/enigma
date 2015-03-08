@@ -17,8 +17,8 @@
   "license": "MIT",
   "devDependencies": {
     "grunt-contrib-jasmine": "latest",
-    "grunt": "~0.4.0",
-    "grunt-contrib-coffee": "~0.4.0",
-    "grunt-contrib-watch": "~0.2.0a"
+    "grunt": "~0.4.5",
+    "grunt-contrib-coffee": "~0.13.0",
+    "grunt-contrib-watch": "~0.6.0"
   }
 }
