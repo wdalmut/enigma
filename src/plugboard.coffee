@@ -30,6 +30,7 @@ class Plugboard
 
   map: (letter, to) ->
     this.wirings[letter] = to
+    this.wirings[to] = letter
 
   wire: (letter) ->
     this.wirings[letter]
