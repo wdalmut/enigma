@@ -13,7 +13,7 @@ module.exports = (grunt) ->
       src: '<%= meta.src %>'
       options:
         specs: '<%= meta.specs %>'
-        vendor: []
+        vendor: ''
 
     coffee:
       compile:

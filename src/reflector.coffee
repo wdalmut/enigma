@@ -3,6 +3,7 @@ class Reflector
     "a": "ejmzalyxvbwfcrquontspikhgd",
     "b": "yruhqsldpxngokmiebfzcwvjat",
     "c": "fvpjiaoyedrzxwgctkuqsbnmhl",
+    "fake": "abcdefghijklmnopqrstuvwxyz",
   }
 
   constructor: (model) ->

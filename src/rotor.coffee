@@ -1,13 +1,13 @@
 class Rotor
-  rotors: {
-    "I": "ekmflgdqvzntowyhxuspaibrcj",
-    "II": "ajdksiruxblhwtmcqgznpyfvoe",
+  availableRotors: {
+    "I":   "ekmflgdqvzntowyhxuspaibrcj",
+    "II":  "ajdksiruxblhwtmcqgznpyfvoe",
     "III": "bdfhjlcprtxvznyeiwgakmusqo",
   }
   letters: false
 
   constructor: (type, position) ->
-    @letters = @rotors[type]
+    @letters = @availableRotors[type]
 
     i=0
     while i < position
@@ -15,7 +15,12 @@ class Rotor
       i++
 
   map: (letter) ->
-    @letters[(letter.charCodeAt 0) - 97]
+    pos = (letter.charCodeAt 0) - 97
+    @letters[pos]
+
+  unmap: (letter) ->
+    pos = @letters.indexOf letter
+    char = String.fromCharCode(97 + pos)
 
   revolution: () ->
     @letters = (@letters[25..] + @letters)[0..25]
